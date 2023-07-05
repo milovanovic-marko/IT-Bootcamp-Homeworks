@@ -1,0 +1,94 @@
+ID,Title,Created By,Created On,Estimate,Forecast,Priority,References,Section,Section Depth,Section Description,Steps (Expected Result),Steps (Step),Suite,Suite ID,Type,Updated By,Updated On
+C1,Verify that user can log in with valid credentials,Marko Milovanovic,04-09-23 05:36,,,Critical,,Verify that user can log in with valid credentials,0,,"1. Safari browser is opened
+2. Login page of """"Saucedemo"""" is opened
+3. Username is entered and visible
+4. Password is entered, visible and covered in dots
+5. User is logged in and redirected to """"Homepage""""","1. Open Safari browser
+2. Go to following URL: https://www.saucedemo.com/
+3. Input valid username into field """"Username"""" (example: RoboDog)
+4. Input valid password into field """"Password"""" (example: toydestroyer123)
+5. Click on """"Log in"""" button",Master,S1,Smoke & Sanity,Marko Milovanovic,04-09-23 05:58
+C2,Verify that user cannot log in with invalid password,Marko Milovanovic,04-09-23 05:47,,,Medium,,Verify that user can log in with valid credentials,0,,"1. Safari browser is opened
+2. Login page of """"Saucedemo"""" is opened
+3. Username is entered and visible
+4. Password is entered, visible and covered in dots
+5. User is unable to log in and message """"Username and password cannot be identical match"""" is visible","1. Open Safari browser
+2. Go to following URL: https://www.saucedemo.com
+3. Input valid username into """"Username"""" field (example: toystory)
+4. Input invalid password into """"Password"""" field (example: toystory)
+5. Click on """"Log in"""" button",Master,S1,Acceptance,Marko Milovanovic,04-09-23 06:09
+C3,Verify that user cannot log in with invalid username,Marko Milovanovic,04-09-23 05:47,,,Medium,,Verify that user can log in with valid credentials,0,,"1. Safari browser is opened
+2. Login page of """"Saucedemo"""" is opened
+3. Username is entered and visible
+4. Password is entered, visible and covered in dots
+5. User is unable to log in and message """"Username cannot contain special characters"""" is visible","1. Open Safari browser
+2. Go to following URL: https://www.saucedemo.com/
+3. Input invalid username into """"Username"""" field (example: toy@store)
+4. Input valid password into """"Password"""" field (example: unhackablepassword55) 
+5. Click on """"Log in"""" button",Master,S1,Acceptance,Marko Milovanovic,04-09-23 06:15
+C4,Verify that user cannot log in if all login fields are left empty,Marko Milovanovic,04-09-23 05:49,,,Medium,,Verify that user can log in with valid credentials,0,,"1. Safari browser is opened
+2. Login page of """"Saucedemo"""" is opened
+3. Username is not entered and """"Username"""" field is empty
+4. Password is not entered and """"Password"""" field is empty
+5. User is unable to log in and message """"Please enter Username and Password"""" is visible","1. Open Safari browser
+2. Go to following URL: https://www.saucedemo.com/
+3. Left blank """"Username"""" field
+4. Left blank """"Password"""" field
+5. Click on """"Log in"""" button",Master,S1,Acceptance,Marko Milovanovic,04-09-23 06:21
+C5,Verify that are elements are visible on Homepage,Marko Milovanovic,04-09-23 06:23,,,Medium,,Verify that all elements are visible on Homepage,0,,"1. """"Hamburger menu"""" is visible and on the top left corner
+2. """"Cart"""" button is visible and on the top right corner
+3. Copy """"Product"""" is visible and on the left side of header
+4. """"Sort by"""" button is visible and on the right side of header
+5. """"Product cards"""" are visible and there are two """"Product cards"""" per row
+6. Image of product is visible and on the left side of """"Product card""""
+7. Title in """"Product card"""" is visible
+8. Description in """"Product card"""" is visible
+9. Price is visible and on the bottom left part of """"Product card""""
+10. """"Add to cart"""" button is visible and on the bottom right part of """"Product card""""
+
+11. Facebook and Instagram social buttons are visible and on the top right corner of footer
+12. Copy """"&copy; 2023 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"""" is visible and on the top left corner of footer","1. Verify that """"Hamburger menu"""" is on the top left corner
+2. Verify that """"Cart"""" button is on the top right corner
+3. Verify that copy """"Product"""" is on the left side of header
+4. Verify that """"Sort by"""" button is on the right side of header
+5. Verify that there are two """"Product cards"""" per row
+6. Verify that image of product is present on the left side of """"Product card""""
+
+7. Verify that title is visible in """"Product card""""
+8. Verify that description is visible in """"Product card""""
+9. Verify that price is visible on bottom left part of """"Product card""""
+10. Verify that """"Add to cart"""" button is visible on bottom right part of """"Product card""""
+11. Verify that footer contains Facebook and Instagram social buttons on the top right corner
+12. Verify that copy """"&copy; 2023 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"""" is visible on the top left corner of footer",Master,S1,Other,Marko Milovanovic,04-09-23 08:24
+C6,"Verify that """"Hamburger menu"""" can open",Marko Milovanovic,04-09-23 07:45,,,Medium,,"""""Hamburger menu"""" functionality",0,,1. Hamburger menu is opened and menu elements are visible,"1. On top left corner click on """"hamburger menu"""" button",Master,S1,Other,Marko Milovanovic,04-09-23 08:25
+C7,"Verify that """"Hamburger menu"""" contains all elements",Marko Milovanovic,04-09-23 07:46,,,Medium,,"""""Hamburger menu"""" functionality",0,,"1. Hamburger menu is opened and menu elements are visible
+
+2. Hamburger menu contains """"All Items"""", """"About"""", """"Logout"""" and """"Reset App State"""" elements","1. In top left corner click on """"Hamburger menu"""" button
+2. Verify that """"Hamburger menu"""" contains """"All Items"""", """"About"""", """"Logout"""" and """"Reset App State"""" elements",Master,S1,Other,Marko Milovanovic,04-09-23 08:04
+C8,"Verify that all elements of """"Hamburger menu"""" redirect to appropriate pages",Marko Milovanovic,04-09-23 07:49,,,Medium,,"""""Hamburger menu"""" functionality",0,,"1. """"All items"""" page is opened in the same tab
+2. """"About"""" page is opened in the same tab
+3. User is logged out and redirected to login page of """"Saucedemo""""
+4. Any changes are reverted to original values","1. Click on """"All items""""
+2. Click on """"About""""
+3. Click on """"Logout""""
+4. Click on """"Rest App State""""",Master,S1,Other,Marko Milovanovic,04-09-23 08:09
+C11,"Verify that user can open """"Cart""""",Marko Milovanovic,04-09-23 08:11,,,Medium,,"""""Add to cart"""" functionality",0,,"1. """"Cart"""" page is opened in the same tab","1. In top right corner click on """"Cart"""" button",Master,S1,Other,Marko Milovanovic,04-09-23 08:28
+C12,"Verify that """"Continue Shopping"""" button works",Marko Milovanovic,04-09-23 08:19,,,Medium,,"""""Add to cart"""" functionality",0,,"1. User is redirected to """"Homepage"""" in the same tab","1. In bottom left corner click on """"Return to Shopping"""" button",Master,S1,Other,Marko Milovanovic,04-09-23 08:29
+C9,Verify that user can add item to cart,Marko Milovanovic,04-09-23 07:50,,,Medium,,"""""Add to cart"""" functionality",0,,"1. """"Cart"""" page is opened in the same tab and empty
+
+2. User is redirected back to """"Homepage""""
+3. Item is added to cart
+4. """"Cart"""" page is opened in the same tab and one added item is visible","1. In top right corner click on """"Cart"""" button
+
+2. Click on """"Continue Shopping"""" button
+3. Click on """"Add to cart"""" button
+4. In top right corner click on """"Cart"""" button",Master,S1,Other,Marko Milovanovic,04-09-23 08:29
+C10,Verify that user can add multiple items to cart,Marko Milovanovic,04-09-23 07:51,,,Medium,,"""""Add to cart"""" functionality",0,,"1. """"Cart"""" page is opened in the same tab and do not contain any product
+2. User is redirected back to """"Homepage"""" in the same tab
+3. Product is added to cart
+4. Product is added to cart
+5. """"Cart"""" page is opened in the same tab and contains two products previously added to cart","1. In top right corner click on """"Cart"""" button
+2. In bottom left corner click on """"Return to Shopping""""
+3. Click on """"Add to cart"""" button
+4. Click on """"Add to cart"""" button
+5. In top right corner click on """"Cart"""" button",Master,S1,Other,Marko Milovanovic,04-09-23 08:45

@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "dec4bb3b-9b40-4909-8ec2-c4afb283e470",
+		"name": "Domaci cetvrtak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28014945"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"userID\", pm.response.json().message)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"{{firstName}}\",\r\n  \"lastName\": \"{{lastName}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"phone\": \"{{phone}}\",\r\n  \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{username}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"userID\", pm.response.json().message)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"{{firstName}}\",\r\n  \"lastName\": \"{{lastName}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"phone\": \"{{phone}}\",\r\n  \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{username}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logs user into the system",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{loginResoruce}}?username={{username}}&password={{password}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{loginResoruce}}"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "{{username}}"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logs out current logged in user session",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{logoutResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{logoutResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{username}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creates list of users with given input array",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": 10,\r\n    \"username\": \"usr1\",\r\n    \"firstName\": \"name1\",\r\n    \"lastName\": \"lastname1\",\r\n    \"email\": \"email1\",\r\n    \"password\": \"psw1\",\r\n    \"phone\": \"1\",\r\n    \"userStatus\": 0\r\n  },\r\n\r\n  {\r\n    \"id\": 11,\r\n    \"username\": \"usr2\",\r\n    \"firstName\": \"name2\",\r\n    \"lastName\": \"lastname2\",\r\n    \"email\": \"email2\",\r\n    \"password\": \"psw2\",\r\n    \"phone\": \"2\",\r\n    \"userStatus\": 0\r\n  },\r\n\r\n  {\r\n    \"id\": 12,\r\n    \"username\": \"usr3\",\r\n    \"firstName\": \"name3\",\r\n    \"lastName\": \"lastname3\",\r\n    \"email\": \"email3\",\r\n    \"password\": \"psw3\",\r\n    \"phone\": \"3\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{createWithArrayResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{createWithArrayResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creates list of users with given input list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": 20,\r\n    \"username\": \"usr20\",\r\n    \"firstName\": \"name20\",\r\n    \"lastName\": \"lastname20\",\r\n    \"email\": \"email20\",\r\n    \"password\": \"psw20\",\r\n    \"phone\": \"20\",\r\n    \"userStatus\": 0\r\n  },\r\n\r\n  {\r\n    \"id\": 21,\r\n    \"username\": \"usr21\",\r\n    \"firstName\": \"name21\",\r\n    \"lastName\": \"lastname21\",\r\n    \"email\": \"email21\",\r\n    \"password\": \"psw21\",\r\n    \"phone\": \"21\",\r\n    \"userStatus\": 0\r\n  },\r\n\r\n  {\r\n    \"id\": 22,\r\n    \"username\": \"usr22\",\r\n    \"firstName\": \"name22\",\r\n    \"lastName\": \"lastname22\",\r\n    \"email\": \"email22\",\r\n    \"password\": \"psw22\",\r\n    \"phone\": \"22\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{userResource}}/{{createWithListResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{userResource}}",
+								"{{createWithListResource}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Add a new pet to the store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"petID\", pm.response.json().id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 55,\r\n  \"category\": {\r\n    \"id\": 55,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 55,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{petResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{petResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an existing pet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{petID}},\r\n  \"category\": {\r\n    \"id\": {{petID}},\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": {{petID}},\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"sold\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{petResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{petResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finds Pets by status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{petResource}}/{{findByStatusResource}}?status={{soldStatus}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{petResource}}",
+								"{{findByStatusResource}}"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "{{soldStatus}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes a pet",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Returns pet inventories by status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{storeResource}}/{{inventoryResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{storeResource}}",
+								"{{inventoryResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place an order for a pet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"orderID\", pm.response.json().id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 25,\r\n  \"petId\": {{petID}},\r\n  \"quantity\": 1,\r\n  \"shipDate\": \"2023-06-17T17:51:56.589Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{storeResource}}/{{orderResource}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{storeResource}}",
+								"{{orderResource}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find purchase order by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{storeResource}}/{{orderResource}}/{{orderID}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{storeResource}}",
+								"{{orderResource}}",
+								"{{orderID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete purchase order by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURI}}/{{storeResource}}/{{orderResource}}/{{orderID}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{storeResource}}",
+								"{{orderResource}}",
+								"{{orderID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
